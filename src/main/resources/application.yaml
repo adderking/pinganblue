@@ -1,0 +1,66 @@
+#debug模式，日志会显示更多信息
+debug: true
+#日志配置文件路径
+logging:
+  level:
+    root: DEBUG
+  config: classpath:logback-config.xml
+spring:
+  #名称，在cloud中用到，默认default
+  application:
+    name: pinganblue
+  #springboot启动后pid文件保存路径
+  pid:
+    file: /Users/kingcobra/Downloads/Logs/pinganblue.pid
+  #session
+  session:
+    redis:
+      cleanup-cron: 0 * * * * *
+      flush-mode: immediate
+      namespace: "spring:session:pinganblue"
+      repository-type: indexed
+  data:
+    redis:
+      host: 192.168.1.150
+      port: 6379
+      password: kearogao
+      database: 0
+      connect-timeout: 30
+  datasource:
+    url: jdbc:postgresql://192.168.1.150:5432/pinganblue
+    username: kingcobra
+    password: kearogao
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: select 1
+      minimum-idle: 1
+      auto-commit: true
+      validation-timeout: 3000
+      pool-name: pingAnBlue
+      maximum-pool-size: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      leak-detection-threshold: 0
+      initialization-fail-timeout: 1
+  #JPA方式需要添加以下配置
+  jpa:
+    open-in-view: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+  #spring aop
+  aop: auto
+# springboot启动后服务使用的端口号
+server:
+  port: 18081
+  servlet:
+    session:
+      cookie:
+        domain: cele.com
+      timeout: 30m
