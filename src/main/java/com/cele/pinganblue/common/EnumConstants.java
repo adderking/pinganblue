@@ -12,27 +12,24 @@ public class EnumConstants {
         success,failure
     }
 
+    /**
+     * 社会用户账号状态
+     */
     public enum UserStatus{
-        unaudit(0),audit(1),enable(2), disable(3);
+        unaudit(0),init(1),audit(2), disable(3);
         private int code;
         UserStatus(int code){
             this.code = code;
         }
         public static UserStatus getStatus(int code) {
             switch (code) {
-                case 0:
-                    return unaudit;
-                case 1:
-                    return audit;
-                case 2:
-                    return enable;
-                case 3:
-                    return disable;
-                default:
-                    return unaudit;
+                case 0-> { return unaudit;}
+                case 1-> { return init;}
+                case 2-> { return audit;}
+                case 3-> { return disable;}
+                default->{ return disable;}
             }
         }
-
         public int getCode() {
             return code;
         }

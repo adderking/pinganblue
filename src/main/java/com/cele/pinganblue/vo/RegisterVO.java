@@ -19,7 +19,7 @@ public class RegisterVO extends BaseVO{
     private String nickname;    //微信昵称
     private String username;    //真实姓名
     private String wechatID;    //用户的微信ID
-    private String street;  //所属街道
+    private StreetVO street;  //所属街道
     private String phoneNum; //电话号码
     private String idNo;    //身份证号码
 }

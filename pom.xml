@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cele</groupId>
@@ -21,7 +21,7 @@
     </repositories>
     <properties>
         <java.version>17</java.version>
-        <pgsql.driver.version>42.7.1</pgsql.driver.version>
+        <pgsql-driver.version>42.7.1</pgsql-driver.version>
         <hibernate-types.version>2.21.1</hibernate-types.version>
         <guava.version>32.1.3-jre</guava.version>
         <commons-fileupload.version>1.3.2</commons-fileupload.version>
@@ -68,6 +68,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${pgsql-driver.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>

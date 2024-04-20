@@ -16,11 +16,9 @@ import java.io.IOException;
  **/
 
 //@Order(1)
-//@WebFilter(urlPatterns = "/*",filterName = "loginFilter",initParams = @WebInitParam(name = "noFilter",value="/login,/auth,/logout"))
+//@WebFilter(urlPatterns = "/api/*",filterName = "loginFilter",initParams = @WebInitParam(name = "noFilter",value="/api/v1/login,/api/v1/auth,/api/v1/logout,/openapi"))
 public class LoginFilter implements Filter {
-
     private String[] noFilterUrl;
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
@@ -37,7 +35,6 @@ public class LoginFilter implements Filter {
             }
         }
     }
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         String initParam =  filterConfig.getInitParameter("noFilter");
