@@ -21,26 +21,26 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public abstract class MessagerMapper {
     public static final MessagerMapper INSTANCE = Mappers.getMapper(MessagerMapper.class);
-    @Mapping(source = "userStatus",target="userStatus",qualifiedByName = "enumToOrdinal")
+    @Mapping(source = "userStatus",target="userStatus",qualifiedByName = "enumToString")
     @Mapping(source = "createTime",target="createTime",dateFormat = "yyyy-MM-dd HH:mm:ss")
-    @Mapping(source="street",target=".")
+    @Mapping(source = "approveTime",target="approveTime",dateFormat = "yyyy-MM-dd HH:mm:ss")
     public abstract MessagerVO poConvertToVO(MessagerPO messagePO);
 
     @Mapping(source = "userStatus",target="userStatus",qualifiedByName = "ordinalToEnum")
     @Mapping(source = "createTime",target="createTime",dateFormat = "yyyy-MM-dd HH:mm:ss")
-//    @Mapping(source="street",target=".")
+    @Mapping(source = "approveTime",target="approveTime",dateFormat = "yyyy-MM-dd HH:mm:ss")
     public abstract  MessagerPO voConvertToPO(MessagerVO messageVO);
+
     public abstract MessagerPO registerVOToPO(RegisterVO registerVO);
 
-    @Named("ordinalToEnum")
-    public UserStatus ordinalConvertToEnum(int statusCode) {
-        UserStatus userStatus = UserStatus.getStatus(statusCode);
-        return userStatus;
+    @Named("enumToString")
+    public String ordinalConvertToEnum(UserStatus userStatus) {
+        return userStatus.name();
     }
-    @Named("enumToOrdinal")
-    public int enumConvertToOrdinal(UserStatus userStatus) {
-        int code = userStatus.getCode();
-        return code;
+    @Named("ordinalToEnum")
+    public UserStatus enumConvertToOrdinal(Integer userStatusCode) {
+        UserStatus userStatus = UserStatus.getStatus(userStatusCode);
+        return userStatus;
     }
     public abstract List<MessagerPO> vosConvertToPOs(List<MessagerVO> messagerVOS) ;
     public abstract List<MessagerVO> posConvertToVOs(List<MessagerPO> messagerPOS) ;

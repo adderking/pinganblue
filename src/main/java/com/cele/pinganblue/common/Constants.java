@@ -7,9 +7,15 @@ package com.cele.pinganblue.common;
 public class Constants {
     public static final String DECRYPT_FAILURE_MESSAGE = "数据解密失败";
     public static final String ENCRYPT_FAILURE_MESSAGE = "数据加密失败";
+    public static final String SIGNUP_FAILURE_MESSAGE = "注册失败，请联系管理员";
 
     public static final String INSERT_FAILURE_MESSAGE = "新增数据记录失败，请联系管理员";
     public static final String UPDATE_FAILURE_MESSAGE = "更新数据记录失败，请联系管理员";
     public static final String DELETE_FAILURE_MESSAGE = "删除数据记录失败，请联系管理员";
     public static final String QUERY_FAILURE_MESSAGE = "查询数据记录失败，请联系管理员";
+    public static final String CHANGE_USERSTATUS_FAILURE_MESSAGE = "修改用户状态失败，请联系管理员";
+
+
+
+
 }

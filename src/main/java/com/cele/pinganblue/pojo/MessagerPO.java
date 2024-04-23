@@ -28,12 +28,15 @@ public class MessagerPO extends BasePO{
     @Column(name="wechatid")
     private String wechatID;    //用户的微信ID
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name="street",referencedColumnName = "streetCode")
+    @JoinColumn(name="street",referencedColumnName = "streetcode")
     private StreetPO street;  //所属街道
-    @Column(name = "creattime")
+    @Column(name = "createtime")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;    //注册时间
+    @Column(name = "approvetime")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date approveTime;    //审批时间
     @Column(name = "userstatus")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private UserStatus userStatus;
 }

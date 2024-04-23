@@ -31,59 +31,47 @@ public class StreetService implements IStreetService {
     @Autowired
     private IStreetDao streetDao;
     @Override
-    public boolean add(StreetVO streetVO) throws Exception {
+    public void add(StreetVO streetVO) throws Exception {
         StreetPO streetPO = streetMapper.voConvertToPO(streetVO);
-        boolean status = false;
         try {
             streetPO.setPrimaryKey(UUID.randomUUID());
             streetDao.save(streetPO);
-            status = true;
         } catch (Exception e) {
             log.error("insert street error! {}", streetPO, e);
             throw new RuntimeException(Constants.INSERT_FAILURE_MESSAGE);
         }
-        return status;
     }
 
     @Override
-    public boolean updateStreet(StreetVO streetVO) throws Exception {
+    public void updateStreet(StreetVO streetVO) throws Exception {
         StreetPO streetPO = streetMapper.voConvertToPO(streetVO);
-        boolean status = false;
         try {
             streetDao.save(streetPO);
-            status = true;
         } catch (Exception e) {
             log.error("update street error! {}", streetPO, e);
             throw new RuntimeException(Constants.UPDATE_FAILURE_MESSAGE);
         }
-        return status;
     }
 
     @Override
-    public boolean deleteStreet(StreetVO streetVO) throws Exception {
+    public void deleteStreet(StreetVO streetVO) throws Exception {
         StreetPO streetPO = streetMapper.voConvertToPO(streetVO);
-        boolean status = false;
         try {
             streetDao.delete(streetPO);
-            status = true;
         } catch (Exception e) {
             log.error("delete street error! {}", streetPO, e);
             throw new RuntimeException(Constants.DELETE_FAILURE_MESSAGE);
         }
-        return status;
     }
 
     @Override
-    public boolean deleteStreet(String primaryKey) throws Exception {
-        boolean status = false;
+    public void deleteStreet(String primaryKey) throws Exception {
         try {
             streetDao.deleteById(UUID.fromString(primaryKey));
-            status = true;
         } catch (Exception e) {
             log.error("delete street by PK error! {}", primaryKey, e);
             throw new RuntimeException(Constants.DELETE_FAILURE_MESSAGE);
         }
-        return status;
     }
 
     @Override

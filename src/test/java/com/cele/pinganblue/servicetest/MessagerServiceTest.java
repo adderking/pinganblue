@@ -30,7 +30,7 @@ public class MessagerServiceTest extends PinganblueApplicationTests {
         messagerVO.setWechatID("weChatID_1");
 //        messagerVO.setPrimaryKey(UUID.randomUUID().toString());
         try {
-            boolean status = messagerService.updateMessager(messagerVO);
+            messagerService.updateMessager(messagerVO);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

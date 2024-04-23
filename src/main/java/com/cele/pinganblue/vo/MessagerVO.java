@@ -16,7 +16,8 @@ public class MessagerVO extends BaseVO{
     private String nickname;    //微信昵称
     private String wechatID;    //用户的微信ID
     private StreetVO street;  //所属街道
-    private Integer userStatus; //用户审批状态,代码值参考UserStatus枚举类型
+    private String userStatus; //用户审批状态,代码值参考UserStatus枚举类型
     private Date createTime; //用户创建时间
+    private Date approveTime; //审批通过时间
 
 }

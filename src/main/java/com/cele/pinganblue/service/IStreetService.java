@@ -21,7 +21,7 @@ public interface IStreetService {
      * @return
      * @throws Exception
      */
-    public boolean add(StreetVO streetVO) throws Exception ;
+    public void add(StreetVO streetVO) throws Exception ;
 
     /**
      * 更新街道
@@ -29,7 +29,7 @@ public interface IStreetService {
      * @return
      * @throws Exception
      */
-    public boolean updateStreet(StreetVO streetVO) throws Exception ;
+    public void updateStreet(StreetVO streetVO) throws Exception ;
 
     /**
      * 通过实体删除街道
@@ -38,14 +38,14 @@ public interface IStreetService {
      * @throws Exception
      */
 
-    public boolean deleteStreet(StreetVO streetVO) throws Exception ;
+    public void deleteStreet(StreetVO streetVO) throws Exception ;
     /**
      * 通过街道主键删除街道
      * @param primaryKey
      * @return
      * @throws Exception
      */
-    public boolean deleteStreet(String primaryKey) throws Exception ;
+    public void deleteStreet(String primaryKey) throws Exception ;
 
     /**
      * 根据主键查找街道

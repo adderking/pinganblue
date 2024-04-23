@@ -22,8 +22,8 @@ import java.util.Optional;
  * Author: kingcobra
  * create on 2024/4/13 11:33
  **/
-@Order(0)
-@WebFilter(urlPatterns = "/openapi/v1/*",filterName = "AESFilter",initParams = @WebInitParam(name = "noFilter",value="/openapi/v1/fileUpload"))
+//@Order(0)
+//@WebFilter(urlPatterns = "/openapi/v1/*",filterName = "AESFilter",initParams = @WebInitParam(name = "noFilter",value="/openapi/v1/fileUpload"))
 @Slf4j
 public class AESFilter implements Filter {
     private String[] noFilterUrl;

@@ -1,10 +1,12 @@
 package com.cele.pinganblue.dao;
 
+import com.cele.pinganblue.common.EnumConstants;
 import com.cele.pinganblue.pojo.MessagerPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -13,5 +15,7 @@ import java.util.UUID;
  **/
 @Repository("messagerDao")
 public interface IMessagerDao extends JpaRepository<MessagerPO, UUID>, JpaSpecificationExecutor<MessagerPO> {
+    Optional<MessagerPO> findByWechatID(String weChatID);
 
+    void deleteAllByUserStatus(EnumConstants.UserStatus userStatus);
 }

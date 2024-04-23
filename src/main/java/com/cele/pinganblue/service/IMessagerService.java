@@ -1,9 +1,10 @@
 package com.cele.pinganblue.service;
 
-import com.cele.pinganblue.common.EnumConstants;
 import com.cele.pinganblue.vo.MessagerVO;
 import com.cele.pinganblue.vo.RegisterVO;
 import org.springframework.data.domain.Page;
+
+import java.util.Map;
 
 /**
  * Author: kingcobra
@@ -18,7 +19,7 @@ public interface IMessagerService {
      * @return
      * @throws Exception
      */
-    public boolean signUp(RegisterVO registerVO) throws Exception ;
+    public void signUp(RegisterVO registerVO) throws Exception ;
 
     /**
      * 信息员更新
@@ -26,17 +27,17 @@ public interface IMessagerService {
      * @return
      * @throws Exception
      */
-    public boolean updateMessager(MessagerVO messagerVO) throws Exception ;
+    public void updateMessager(MessagerVO messagerVO) throws Exception ;
 
     /**
      * 修改信息员装填
      * @param messageVO
-     * @param userStatus
+     * @param status 状态字符串 对应UserStatus枚举类型
      * @return
      * @throws Exception
      */
 
-    public boolean changeUserStatus(MessagerVO messageVO, EnumConstants.UserStatus userStatus) throws Exception ;
+    public boolean changeUserStatus(MessagerVO messageVO, String status) throws Exception ;
 
     /**
      * 删除信息员
@@ -45,7 +46,16 @@ public interface IMessagerService {
      * @throws Exception
      */
 
-    public boolean deleteMessager(MessagerVO messageVO) throws Exception ;
+    public void deleteMessager(MessagerVO messageVO) throws Exception ;
+    /**
+     * 删除信息员
+     * @param primaryKey 主键
+     * @return
+     * @throws Exception
+     */
+    public void deleteMessagerByPK(String primaryKey) throws Exception;
+
+    public void deleteMessagerByStatus(String status) throws Exception;
 
     /**
      * 根据微信ID查找信息员
@@ -57,5 +67,9 @@ public interface IMessagerService {
     public MessagerVO findByWechatId(String weChatID) throws Exception ;
 
     public Page<MessagerVO> findByPage(int pageNum, int pageSize);
+
+    public Page<MessagerVO> findByStreet(String streetCode,int pageNum, int pageSize);
+
+    public Page<MessagerVO> findByCondition(Map<String,Object> condition, int pageNum, int pageSize);
 
 }
